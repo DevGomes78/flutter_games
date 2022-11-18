@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_games/service/games_service.dart';
 import 'package:provider/provider.dart';
 
+import '../components/list_console.dart';
+
 class GamePage extends StatefulWidget {
   const GamePage({Key? key}) : super(key: key);
 
@@ -12,12 +14,14 @@ class GamePage extends StatefulWidget {
 class _GamePageState extends State<GamePage> {
   GameService controller = GameService();
   GameService controller1 = GameService();
+  GameService controller2 = GameService();
 
   @override
   void initState() {
     controller = context.read<GameService>();
     controller.getData();
     controller1.getData1();
+    controller2.getConsole();
     super.initState();
   }
 
@@ -46,6 +50,7 @@ class _GamePageState extends State<GamePage> {
                   return ListView(
                     children: [
                       const SizedBox(height: 50),
+
                       const Text(
                         'Olá,Amilson!',
                         style: TextStyle(
@@ -54,6 +59,7 @@ class _GamePageState extends State<GamePage> {
                         ),
                       ),
                       const SizedBox(height: 50),
+                      ListConsole(),
                       Container(
                         height: MediaQuery.of(context).size.height / 2.2,
                         width: double.infinity,

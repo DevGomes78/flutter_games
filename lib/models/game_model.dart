@@ -50,8 +50,7 @@ class Results {
     cover = json['cover'];
     developer = json['developer'];
     publisher = json['publisher'];
-    director = json['director'].cast<String>();
-    genre = json['genre'].cast<String>();
+
     platform = json['platform'].cast<String>();
     releaseDate = json['release_date'];
   }
