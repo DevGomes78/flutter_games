@@ -10,7 +10,7 @@ class GameService extends ChangeNotifier {
     final response = await http
         .get(Uri.parse('https://videogamesapi.herokuapp.com/api/games/'));
      var decodejson = jsonDecode(response.body);
-     return decodejson;
-
+     decodejson['results'].forEach((item)=> lista.add(Results.fromJson(item)));
+     return lista;
   }
 }
