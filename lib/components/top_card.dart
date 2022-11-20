@@ -21,7 +21,7 @@ class _TopCardState extends State<TopCard> {
         children: [
           const Positioned(
             left: 20,
-            top: 30,
+            top: 20,
             child: Icon(
               Icons.arrow_back_ios,
               size: 25,
@@ -30,7 +30,7 @@ class _TopCardState extends State<TopCard> {
           ),
           const Positioned(
             left: 20,
-            top: 70,
+            top: 60,
             child: Text(
               'Browse games',
               style: TextStyle(
@@ -42,13 +42,27 @@ class _TopCardState extends State<TopCard> {
           ),
           Positioned(
             left: 10,
-            top: 120,
+            top: 110,
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.black26),
               height: 120,
               width: 300,
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 5,
+                    top: 5,
+                    child: Container(
+                      height: 130,
+                      width: 130,
+                      child: Image.asset('image/over.png'),
+                    ),
+                  ),
+
+                ],
+              ),
             ),
           ),
         ],
