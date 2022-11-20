@@ -36,10 +36,11 @@ class _GamePageState extends State<GamePage> {
                   ),
                 ),
                 const SizedBox(width: 10),
-              SizedBox(
-                height: 20,
+                SizedBox(
+                  height: 20,
                   width: 20,
-                  child: Image.asset('image/fire.png')),
+                  child: Image.asset('image/fire.png'),
+                ),
               ],
             ),
           ),
