@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class TopCard extends StatefulWidget {
   const TopCard({Key? key}) : super(key: key);
@@ -60,7 +59,44 @@ class _TopCardState extends State<TopCard> {
                       child: Image.asset('image/over.png'),
                     ),
                   ),
-
+                  Positioned(
+                    left: 160,
+                    top: 10,
+                    child: Container(
+                      height: 60,
+                      width: 120,
+                      child: const Text(
+                        'Overwatch Tournament',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 170,
+                    top: 65,
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 40,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        gradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [Colors.blueAccent, Colors.black]),
+                      ),
+                      child: const Text(
+                        'Join',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
