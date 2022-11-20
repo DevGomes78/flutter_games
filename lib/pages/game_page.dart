@@ -21,21 +21,30 @@ class _GamePageState extends State<GamePage> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [Colors.blueAccent, Colors.black])),
-        child: ListView(children: const [
-          TopCard(),
+        child: ListView(children: [
+          const TopCard(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              'Top this year',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              children: [
+                const Text(
+                  'Top This Year',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 10),
+              SizedBox(
+                height: 20,
+                  width: 20,
+                  child: Image.asset('image/fire.png')),
+              ],
             ),
           ),
-          SizedBox(height: 10),
-          GameList1(),
+          const SizedBox(height: 10),
+          const GameList1(),
         ]),
       ),
     );
