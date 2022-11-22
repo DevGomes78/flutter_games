@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_games/pages/details_page.dart';
 import 'package:provider/provider.dart';
 import '../service/games_service.dart';
 
@@ -68,18 +69,28 @@ class _GameList1State extends State<GameList1> {
                                     horizontal: 4,
                                     vertical: 4,
                                   ),
-                                  child: Container(
-                                    height: 100,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(20),
-                                      child: Image.network(
-                                        controller.lista[index].cover
-                                            .toString(),
-                                        fit: BoxFit.fill,
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => DetailsPage(
+                                                  results: controller
+                                                      .lista[index])));
+                                    },
+                                    child: Container(
+                                      height: 100,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.network(
+                                          controller.lista[index].cover
+                                              .toString(),
+                                          fit: BoxFit.fill,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -87,7 +98,7 @@ class _GameList1State extends State<GameList1> {
                                 const SizedBox(width: 10),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 5.0,vertical: 4),
+                                      horizontal: 5.0, vertical: 4),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
