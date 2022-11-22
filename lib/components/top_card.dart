@@ -27,6 +27,7 @@ class _TopCardState extends State<TopCard> {
               color: Colors.white,
             ),
           ),
+
           const Positioned(
             left: 20,
             top: 60,
