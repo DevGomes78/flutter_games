@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_games/constants/string_constants.dart';
 import '../components/game_list1.dart';
 import '../components/top_card.dart';
 
@@ -28,7 +29,7 @@ class _GamePageState extends State<GamePage> {
             child: Row(
               children: [
                 const Text(
-                  'Top This Year',
+                  StringConstants.topThisYear,
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
