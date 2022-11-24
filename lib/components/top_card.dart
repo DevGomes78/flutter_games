@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_games/constants/string_constants.dart';
 
 class TopCard extends StatefulWidget {
   const TopCard({Key? key}) : super(key: key);
@@ -10,6 +11,10 @@ class TopCard extends StatefulWidget {
 class _TopCardState extends State<TopCard> {
   @override
   Widget build(BuildContext context) {
+    return _topCard(context);
+  }
+
+  _topCard(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height / 2.2,
       decoration: BoxDecoration(
@@ -27,12 +32,11 @@ class _TopCardState extends State<TopCard> {
               color: Colors.white,
             ),
           ),
-
           const Positioned(
             left: 20,
             top: 60,
             child: Text(
-              'Browse games',
+              StringConstants.browseGames,
               style: TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
@@ -67,7 +71,7 @@ class _TopCardState extends State<TopCard> {
                       height: 60,
                       width: 120,
                       child: const Text(
-                        'Overwatch Tournament',
+                        StringConstants.overwatchTournament,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
