@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_games/models/game_model.dart';
 
+import '../constants/string_constants.dart';
+
 class DetailsPage extends StatefulWidget {
   Results? results;
 
@@ -67,7 +69,9 @@ class _DetailsPageState extends State<DetailsPage> {
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white38),
                           child: IconButton(
-                            onPressed: (){Navigator.pop(context);},
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                             icon: const Icon(
                               Icons.arrow_back_ios,
                               size: 25,
@@ -112,7 +116,7 @@ class _DetailsPageState extends State<DetailsPage> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
-                  'Description',
+                  StringConstants.description,
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
