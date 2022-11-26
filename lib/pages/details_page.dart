@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_games/models/game_model.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/string_constants.dart';
+import '../service/games_service.dart';
 
 class DetailsPage extends StatefulWidget {
   Results? results;
@@ -13,8 +15,18 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  GameService controller = GameService();
+
+  @override
+  void initState() {
+    controller = context.read<GameService>();
+    controller.getScreen();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<GameService>(context);
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -123,11 +135,113 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 20),
                 child: Text(widget.results!.description.toString()),
-              )
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10,
+                ),
+                child: Text(
+                  'ScreenShots',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              FutureBuilder<void>(
+                  future: controller.getScreen(),
+                  builder: (context, snapshot) {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.none:
+                      case ConnectionState.waiting:
+                        return SizedBox(
+                          height: MediaQuery.of(context).size.height,
+                          width: MediaQuery.of(context).size.width,
+                          child: const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      default:
+                        if (snapshot.hasError) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0,
+                            ),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Card(
+                                      child: SizedBox(
+                                        height: 120,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                    2.3 -
+                                                5,
+                                        child: Image.network(
+                                          controller.json['results'][0]
+                                              ['screenshot_1'],
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    SizedBox(
+                                      height: 120,
+                                      width: MediaQuery.of(context).size.width /
+                                          2.2,
+                                      child: Image.network(
+                                        controller.json['results'][0]
+                                            ['screenshot_2'],
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      height: 120,
+                                      width: MediaQuery.of(context).size.width /
+                                              2.2 -
+                                          5,
+                                      child: Image.network(
+                                        controller.json['results'][0]
+                                            ['screenshot_3'],
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    SizedBox(
+                                      height: 120,
+                                      width: MediaQuery.of(context).size.width /
+                                              2.2 -
+                                          5,
+                                      child: Image.network(
+                                        controller.json['results'][0]
+                                            ['screenshot_4'],
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 20),
+                              ],
+                            ),
+                          );
+                        }
+                    }
+                  })
             ],
           ),
         ),
