@@ -28,7 +28,6 @@ class Results {
   String? publisher;
   List<String>? director;
   List<String>? genre;
-  List<String>? platform;
   String? releaseDate;
 
   Results(
@@ -40,7 +39,6 @@ class Results {
       this.publisher,
       this.director,
       this.genre,
-      this.platform,
       this.releaseDate});
 
   Results.fromJson(Map<String, dynamic> json) {
@@ -50,8 +48,6 @@ class Results {
     cover = json['cover'];
     developer = json['developer'];
     publisher = json['publisher'];
-
-    platform = json['platform'].cast<String>();
     releaseDate = json['release_date'];
   }
 }
