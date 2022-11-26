@@ -1,16 +1,12 @@
-# flutter_games
+<h1>Desafio Game App</h1>
 
-A new Flutter project.
+ 
+ O objetivo desse desafio foi criar um App utilizando
+uma Api de games e clicando em um jogo da lista,direcionar para pagina de detalhes e mostrar informaçoes como ano de lançamento,empresa e capa do jogo.
+### Mais sobre o App:
++ Componentização para reutilizar em outros arquivos
++ Utilizado padrao MVC na finalidade de organização do código.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Dependencias Utilizadas:
++ http:
++ provider:
